@@ -83,6 +83,12 @@ void MyList::insertNode(int newData, int index) {
 
 	newNode = new ListNode;
 
+	if (!tailNode&&index == -1) {
+		pushBackNode(newData);
+		componentCount++;
+		return;
+	}
+
 	if (index == componentCount + 1) {
 		pushBackNode(newData);
 		componentCount--;//pushBackNode“à‚ÌƒJƒEƒ“ƒg‚ð‘ŠŽE

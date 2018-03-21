@@ -38,6 +38,8 @@ int main(int argc, const char * argv[])
 	myList.popBackNode();
 	myList.pushBackNode(2);
 	myList.display();
+	myList.insertNode(8, -1);
+	myList.display();
 
 	system("pause");
 	return 0;
