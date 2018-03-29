@@ -20,6 +20,37 @@ MyList::~MyList() {
 
 }
 
+MyList::MyList(const MyList &myList) {
+
+	componentCount = myList.componentCount;
+
+	ListNode *nodePtr;
+	nodePtr = myList.headNode;
+	while (nodePtr) {
+		ListNode *newNode;
+		newNode = new ListNode;
+		newNode->data = nodePtr->data;
+		newNode->prev = nodePtr->prev;
+		if (newNode->prev) {
+			newNode->prev->next = newNode;
+		}
+		
+		if (!nodePtr->prev) {
+			this->headNode = newNode;
+		}
+		else if (!nodePtr->next) {
+			this->tailNode = newNode;
+			this->tailNode->next = nullptr;
+		}
+
+		nodePtr = nodePtr->next;
+		if (nodePtr) {
+			nodePtr->prev = newNode;
+		}
+	}
+
+};
+
 
 void MyList::pushBackNode(int newData)
 {
@@ -85,13 +116,12 @@ void MyList::insertNode(int newData, int index) {
 
 	if (!tailNode&&index == -1) {
 		pushBackNode(newData);
-		componentCount++;
 		return;
 	}
 
 	if (index == componentCount + 1) {
 		pushBackNode(newData);
-		componentCount--;//pushBackNode“à‚ÌƒJƒEƒ“ƒg‚ð‘ŠŽE
+		componentCount--;
 	}
 	else if (index == -componentCount - 1) {
 		newNode->next = headNode;
@@ -201,7 +231,7 @@ void MyList::deleteNode(int index)
 	componentCount--;
 }
 
-void MyList::getData(int index){
+int MyList::getData(int index){
 	ListNode *nodePtr;
 	nodePtr = headNode;
 
@@ -220,11 +250,11 @@ void MyList::getData(int index){
 		}
 	}
 
-	std::cout << nodePtr->data << std::endl;
+	return nodePtr->data;
 }
 
-void MyList::getLengh() {
-	std::cout << componentCount << std::endl;
+int MyList::getLengh() {
+	return componentCount;
 }
 
 void MyList::display(){
@@ -234,7 +264,7 @@ void MyList::display(){
 
 	while (nodePtr->next){
 		nodePtr = nodePtr->next;
-		std::cout <<","<< nodePtr->data ;
+		std::cout <<","<< nodePtr->data;
 	}
 	
 	std::cout << std::endl;

@@ -16,11 +16,12 @@ private:
 	ListNode *headNode;
 	ListNode *tailNode;
 
-	int componentCount=0;
+	int componentCount = 0;
 
 public:
 	MyList();
 	~MyList();
+	MyList(const MyList &myList);
 	void pushBackNode(int newData); 
 
 	void replaceNode(int newdata, int index);
@@ -31,9 +32,9 @@ public:
 
 	void deleteNode(int index);
 
-	void getData(int index);
+	int getData(int index);
 
-	void getLengh();
+	int getLengh();
 
 	void display();
 };

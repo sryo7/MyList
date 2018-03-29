@@ -22,24 +22,41 @@ int main(int argc, const char * argv[])
 	myList.display();
 	myList.insertNode(1, -8);
 	myList.display();
-	myList.popBackNode();
+	//myList.popBackNode();
+	//myList.display();
+	//myList.deleteNode(2);
+	//myList.display();
+	//myList.deleteNode(6);
+	//myList.display();
+	//myList.deleteNode(-1);
+	//myList.display();
+	//myList.deleteNode(-2);
+	//myList.display();
+	//myList.deleteNode(-3);
+	//myList.display();
+	//myList.popBackNode();
+	//myList.popBackNode();
+	//myList.pushBackNode(2);
+	//myList.display();
+	//myList.insertNode(8, -1);
+	//myList.display();
+	
+	MyList myList2 = myList;
+	myList2.popBackNode();
+	myList2.popBackNode();
+	myList2.display();
 	myList.display();
-	myList.deleteNode(2);
-	myList.display();
-	myList.deleteNode(6);
-	myList.display();
-	myList.deleteNode(-1);
-	myList.display();
-	myList.deleteNode(-2);
-	myList.display();
-	myList.deleteNode(-3);
-	myList.display();
-	myList.popBackNode();
-	myList.popBackNode();
-	myList.pushBackNode(2);
-	myList.display();
-	myList.insertNode(8, -1);
-	myList.display();
+
+
+
+	
+
+	//MyList myList3;
+	//for (int i = 0; i < 1; i++) {
+	//	myList = myList3;
+	//	myList3 = myList;
+	//}
+	//myList.display();
 
 	system("pause");
 	return 0;
