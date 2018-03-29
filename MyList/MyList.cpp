@@ -22,32 +22,19 @@ MyList::~MyList() {
 
 MyList::MyList(const MyList &myList) {
 
-	componentCount = myList.componentCount;
+	this->headNode = nullptr;
+	this->tailNode = nullptr;
 
 	ListNode *nodePtr;
 	nodePtr = myList.headNode;
-	while (nodePtr) {
-		ListNode *newNode;
-		newNode = new ListNode;
-		newNode->data = nodePtr->data;
-		newNode->prev = nodePtr->prev;
-		if (newNode->prev) {
-			newNode->prev->next = newNode;
-		}
-		
-		if (!nodePtr->prev) {
-			this->headNode = newNode;
-		}
-		else if (!nodePtr->next) {
-			this->tailNode = newNode;
-			this->tailNode->next = nullptr;
-		}
 
+	while (nodePtr) {
+		this->pushBackNode(nodePtr->data);
 		nodePtr = nodePtr->next;
-		if (nodePtr) {
-			nodePtr->prev = newNode;
-		}
 	}
+
+
+
 
 };
 
